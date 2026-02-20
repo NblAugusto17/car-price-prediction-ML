@@ -1,0 +1,35 @@
+# --- Entornos Virtuales (Fundamentales) ---
+.venv/
+venv/
+env/
+bin/
+lib/
+share/
+Include/
+pyvenv.cfg
+
+# --- Python y Caché ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# --- Archivos de Sistema ---
+.DS_Store
+Thumbs.db
+
+# --- Datos y Modelos ---
+*.csv
+
+# NO ignorar archivos .pkl o .joblib
+!*.pkl
+!*.joblib
+
+# --- IDEs ---
+.vscode/
+.idea/
