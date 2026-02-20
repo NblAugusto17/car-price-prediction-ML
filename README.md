@@ -105,7 +105,7 @@ Adoptamos un esquema de partición **70-15-15** (Entrenamiento, Validación y Pr
 **Análisis de la Distribución (Price):**
 El histograma de precios revela un marcado **sesgo a la derecha (Right-Skewed)**. Esta característica define nuestra estrategia de modelado:
 
-![Histograma Target](results\hist_target.png)
+![Histograma Target](results/hist_target.png)
 
 - **Impacto en Regresión Lineal:** El sesgo viola el supuesto de normalidad de los residuos y hace que los autos de lujo (la "cola" del histograma) inflen desproporcionadamente la función de pérdida.
 - **Ventaja de los Árboles:** Los modelos basados en árboles son invariantes a transformaciones monótonas, lo que los hace naturalmente robustos ante este tipo de distribuciones.
@@ -203,11 +203,11 @@ Evaluamos las tres librerías líderes del mercado bajo tres regímenes: **Está
 
 Para seleccionar el modelo de producción, contrastamos la precisión contra el costo operativo (tiempo).
 
-![Resultados tiempo y RECM](results\All_results.png)
+![Resultados tiempo y RECM](results/All_results.png)
 
 Para la decisión final de **Rusty Bargain**, no solo evaluamos el error matemático ($RMSE$), sino el equilibrio dinámico entre la calidad de la respuesta y el costo operativo. El siguiente gráfico de dispersión permite visualizar qué familias de modelos se acercan más al "punto ideal" (esquina inferior izquierda: bajo error y baja latencia).
 
-![Resultados tiempo y RECM](results\Eficiencia_vs_precision.png)
+![Resultados tiempo y RECM](results/Eficiencia_vs_precision.png)
 
 #### **Análisis de la Frontera de Eficiencia**
 
@@ -245,7 +245,7 @@ Tras identificar a **LightGBM (High Performance)** como el candidato óptimo, pr
 
 Para validar la precisión, contrastamos los valores reales frente a las predicciones del modelo en el set de prueba. La cercanía de los puntos a la **línea de identidad (roja)** indica una alta fidelidad en la estimación de precios.
 
-![Resultados de Test](results\test_results.png)
+![Resultados de Test](results/test_results.png)
 
 #### Interpretación Técnica
 
