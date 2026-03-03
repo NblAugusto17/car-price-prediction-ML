@@ -1,0 +1,6 @@
+# Solo lo esencial para que la App funcione
+streamlit
+pandas
+joblib
+lightgbm
+scikit-learn
