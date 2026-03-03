@@ -183,8 +183,6 @@ Se exploró la transición de estructuras simples a ensambles independientes par
 
 * **Hallazgo:** El paso de un solo árbol a un bosque aleatorio (100 estimadores) redujo el error en un 14%, aunque el tiempo de entrenamiento se incrementó significativamente, estableciendo el límite de los métodos de ensamble paralelo.
 
----
-
 ### 3.3 Modelos de Potenciación de Gradiente (Boosting)
 
 Evaluamos las tres librerías líderes del mercado bajo tres regímenes: **Estándar** (velocidad), **Balanceado** (generalización) y **High Performance** (precisión máxima).
@@ -282,3 +280,38 @@ Se selecciona oficialmente el modelo **LightGBM** con la configuración de alta 
 > **💡Interpretación Final:** El modelo es altamente robusto para la flota vehicular estándar. Si bien el error tiende a concentrarse en vehículos de alta gama (*outliers*), su precisión en el grueso del inventario lo convierte en una herramienta de tasación de alta fidelidad, lista para integrarse en un entorno de producción real.
 
 ---
+
+## 📦 **SECCIÓN 4: Exportación y Serialización (MLOps)**
+
+Una vez identificado el modelo con el mejor desempeño, el siguiente paso crítico es la persistencia. En esta etapa, transformamos el objeto modelo en la memoria de ejecución del Notebook en un artefacto binario capaz de ser desplegado en un servidor web (Render).
+
+### **4.1 Estrategia de Persistencia: Joblib vs Pickle**
+
+Para este proyecto, hemos seleccionado **Joblib** como motor de serialización. A diferencia del estándar `pickle`, Joblib está optimizado para manejar grandes arreglos de datos y estructuras complejas de árboles de decisión (como las de LightGBM), lo que garantiza:
+
+- **Cargas rápidas:** Reducción del tiempo de inicio de la aplicación web.
+- **Eficiencia de Almacenamiento:** Uso de compresión para minimizar el peso del repositorio.
+
+### **4.2 Extracción de Artefactos Críticos**
+
+Para asegurar que el modelo sea funcional en el entorno de producción, exportamos dos archivos esenciales en la carpeta `models/`:
+
+1. **El "Cerebro" (`lgbm_car_pricing_model.joblib`):** Contiene el modelo entrenado con sus 1,500 árboles y la lógica nativa de variables categóricas.
+2. **El "Esquema" (`model_columns.joblib`):** Una lista del orden exacto y los nombres de las columnas que el modelo espera. Esto actúa como un seguro contra errores de entrada de datos en la interfaz de usuario.
+
+### **4.3 Estructura Final del Repositorio**
+
+Tras la exportación, el proyecto queda organizado de la siguiente manera para facilitar el despliegue automático:
+
+```text
+car_price_prediction/
+├── data/           # Datasets originales y procesados
+├── models/         # Binarios .joblib (Artefactos de ML)
+├── notebooks/      # Investigación y experimentación (EDA/Modeling)
+├── results/        # Gráficos y visualizaciones del README
+├── src/            # Código fuente de la App (app.py)
+├── README.md       # Documentación técnica
+└── requirements.txt # Dependencias del proyecto
+```
+
+> **Nota Técnica:** La separación entre `models/` y `src/` cumple con el principio de **Separación de Responsabilidades**. El código (`src`) describe la lógica, mientras que el modelo (`models`) describe el conocimiento aprendido, permitiendo actualizar uno sin necesidad de modificar el otro.
