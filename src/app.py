@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
 import joblib
-from pathlib ipmort Path
+from pathlib import Path
 
 # --- CONFIGURACIÓN DE RUTAS ---
 
 # Ubicamos la raíz del proyecto (Path(__file__)) y subimos dos niveles con --> .parent.parent
-BASE_DIR = Path(__file__).resolve.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 MODEL_PATH = BASE_DIR / 'models' / 'lgbm_car_pricing_model.joblib'
 COLUMNS_PATH = BASE_DIR / "models" / "model_columns.joblib"
 
