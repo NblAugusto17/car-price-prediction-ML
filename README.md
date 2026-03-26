@@ -1,4 +1,17 @@
-# 🚗 **Rusty Bargain: Car Valuation Engine**
+<div align="center">
+
+# 🚗 **Automotive Valuation System: Rusty Bargain**
+
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python&logoColor=white)
+![LightGBM](https://img.shields.io/badge/LightGBM-Main_Model-10816e?style=for-the-badge)
+![CatBoost](https://img.shields.io/badge/CatBoost-Alternative-orange?style=for-the-badge)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Render](https://img.shields.io/badge/Render-Deployed-4353ff?style=for-the-badge&logo=render&logoColor=white)
+
+## 🚀 **[ACCEDER A LA APLICACIÓN EN RENDER](https://car-price-prediction-ml-12fs.onrender.com)**
+
+</div>
 
 ## 📌 **Introducción**
 
