@@ -157,7 +157,7 @@ if predict_btn == True:
 
     # A) Verificación de campos vacíos
     if (not body_selected) or (not fuel_selected) or (not gearbox_selected):
-        st.error('¡HAY CAMPOS VACÍOS! Termínalos, animal.')
+        st.error('¡HAY CAMPOS VACÍOS!')
 
     # B) Mapeo del mes
     reg_month_numeric = month_map.get(month_name)
@@ -194,7 +194,7 @@ if predict_btn == True:
 
     st.markdown('---')
 
-    st.header('RREPORTE DE VALORACIÓN')
+    st.header('REPORTE DE VALORACIÓN')
 
     # Definimos el error del modelo (obtenido DEL notebook)
     MODEL_RMSE = 1539.43
